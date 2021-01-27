@@ -19,9 +19,9 @@ elif system == 'darwin':
     ADMIN_MACAROON_BASE_FILEPATH = '~/Library/Application Support/Lnd/data/chain/bitcoin/{}/admin.macaroon'
     READ_ONLY_MACAROON_BASE_FILEPATH = '~/Library/Application Support/Lnd/data/chain/bitcoin/{}/readonly.macaroon'
 elif system == 'windows':
-    TLS_FILEPATH = os.path.expanduser('C:\Users\*username*\.polar\networks\1\volumes\lnd\alice\tls.cert')
-    ADMIN_MACAROON_BASE_FILEPATH = 'C:\Users\*username*\.polar\networks\1\volumes\lnd\alice\data\chain\bitcoin\regtest\admin.macaroon'
-    READ_ONLY_MACAROON_BASE_FILEPATH = 'C:\Users\*username*\.polar\networks\1\volumes\lnd\alice\data\chain\bitcoin\regtest\readonly.macaroon'
+    TLS_FILEPATH = os.path.expanduser(r"C:\Users\MaSharpe\.polar\networks\1\volumes\lnd\alice\tls.cert")
+    ADMIN_MACAROON_BASE_FILEPATH = r"C:\Users\MaSharpe\.polar\networks\1\volumes\lnd\alice\data\chain\bitcoin\regtest\admin.macaroon"
+    READ_ONLY_MACAROON_BASE_FILEPATH = r"C:\Users\MaSharpe\.polar\networks\1\volumes\lnd\alice\data\chain\bitcoin\regtest\readonly.macaroon"
 else:
     raise SystemError('Unrecognized system')
 
