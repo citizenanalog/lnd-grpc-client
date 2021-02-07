@@ -128,9 +128,14 @@ class LNDClient(BaseClient):
     @handle_rpc_errors
     def lookup_invoice(self, r_hash_str):
         """Lookup an existing invoice by its payment hash"""
-        request = ln.PaymentHash(r_hash_str=r_hash_str)
-        response = self._ln_stub.LookupInvoice(request)
-        return response
+        try:
+            """Check for hex encoding first"""
+            int(r_hash_str, 16)
+            request = ln.PaymentHash(r_hash_str=r_hash_str)
+            response = self._ln_stub.LookupInvoice(request)
+            return response
+        except ValueError:
+            raise ValueError("r_hash %s not hex encoding" % r_hash_str)
 
     @handle_rpc_errors
     def list_payments(self):
